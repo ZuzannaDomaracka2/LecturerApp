@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+
+ <ImageView
+     android:id="@+id/imageView1"
+     android:layout_width="721dp"
+     android:layout_height="86dp"
+     app:layout_constraintHorizontal_bias="0.49"
+     app:layout_constraintLeft_toLeftOf="parent"
+     app:layout_constraintRight_toRightOf="parent"
+     app:layout_constraintTop_toTopOf="parent"
+     app:srcCompat="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/EmailL"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="E-mail"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView1"
+        app:layout_constraintVertical_bias="0.0" />
+
+ <EditText
+     android:id="@+id/PasswordL"
+     android:layout_width="wrap_content"
+     android:layout_height="40dp"
+     android:layout_marginStart="16dp"
+     android:layout_marginEnd="16dp"
+     android:ems="10"
+     android:hint="Hasło"
+     android:inputType="textPassword"
+     app:layout_constraintBottom_toBottomOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/EmailL"
+     app:layout_constraintVertical_bias="0.07999998" />
+
+ <Button
+     android:id="@+id/SendButtonL"
+     android:layout_width="wrap_content"
+     android:layout_height="40dp"
+     android:layout_marginStart="16dp"
+     android:layout_marginEnd="16dp"
+     android:ems="10"
+     android:text="Zaloguj się "
+     app:layout_constraintBottom_toBottomOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintHorizontal_bias="0.497"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/PasswordL"
+     app:layout_constraintVertical_bias="0.19999999" />
+
+    <TextView
+        android:id="@+id/RegisterTextL"
+        android:layout_width="317dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:gravity="center"
+        android:text="Kliknij, aby się zarejestrować"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SendButtonL"
+        app:layout_constraintVertical_bias="0.17000002" />
+    </android.support.constraint.ConstraintLayout>
