@@ -1,18 +1,16 @@
 package com.example.lecturerapp;
 
-public class Information {
-    public  String body;
-    public  String lecturerName;
-    public String date;
-    public String id ;
+public class InformationToAdd {
+   public  String body;
+   public  String lecturerName;
+   public String date;
 
 
-    public Information(){
+public InformationToAdd(){
 
-    }
+}
 
-    public Information(String id, String body, String lecturerName, String date) {
-        this.id=id;
+    public InformationToAdd(String body, String lecturerName, String date) {
         this.body = body;
         this.lecturerName = lecturerName;
         this.date = date;
@@ -32,10 +30,5 @@ public class Information {
     public String getDate() {
         return date;
     }
-
-    public String getId() {
-        return id;
-    }
-
 
 }

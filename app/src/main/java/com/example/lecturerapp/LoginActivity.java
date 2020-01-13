@@ -16,7 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     EditText mEmailL;
     EditText mPasswordL;
     Button mSendButtonL;
@@ -57,12 +57,12 @@ public class Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
 
-                            Toast.makeText(Login.this, " Zalogowano poprawnie  ",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            Toast.makeText(LoginActivity.this, " Zalogowano poprawnie  ",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         }
                         else
                         {
-                            Toast.makeText(Login.this, " Login lub hasło jest niepoprawne  " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, " Loginlub hasło jest niepoprawne  " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -74,7 +74,7 @@ public class Login extends AppCompatActivity {
         mRegisterTextL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),Register.class));
+                startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
             }
         });
     }

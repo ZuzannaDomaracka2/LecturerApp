@@ -15,12 +15,17 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
-public class Register extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
     EditText mEmail,mPassword;
     Button mRegisterButton;
     TextView mLoginText;
     FirebaseAuth fAuth;
+    EditText mFullName;
+    String name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,37 +40,55 @@ public class Register extends AppCompatActivity {
         fAuth=FirebaseAuth.getInstance();
 
 
+
+
+
+
+
+
         if(fAuth.getCurrentUser()!= null){
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            startActivity(new Intent(getApplicationContext(), AddInformationActivity.class));
             finish();
         }
+
 
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 String email = mEmail.getText().toString().trim();
                 String password =mPassword.getText().toString().trim();
+
+
+
                 if(TextUtils.isEmpty(email))
                 {
                     mEmail.setError("Wymagany e-mail.");
                     return;
 
                 }
+
                 if(TextUtils.isEmpty(password))
                 {
                     mPassword.setError("Wymagane hasło.");
                     return;
                 }
+
+
                 fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(Register.this, " Nowe konto zostało utworzone ",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
+                            startActivity(intent);
+                            Toast.makeText(RegisterActivity.this, " Nowe konto zostało utworzone ",Toast.LENGTH_SHORT).show();
+
+
                         }
                         else
                         {
-                            Toast.makeText(Register.this, " Error ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, " Error ", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -73,10 +96,11 @@ public class Register extends AppCompatActivity {
 
 
         });
+
         mLoginText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),Login.class));
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             }
         });
     }
