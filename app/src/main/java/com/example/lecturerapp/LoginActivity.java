@@ -21,11 +21,11 @@ public class LoginActivity extends AppCompatActivity {
     EditText mPasswordL;
     Button mSendButtonL;
     TextView mRegisterTextL;
-
     FirebaseAuth fAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         else
                         {
-                            Toast.makeText(LoginActivity.this, " Loginlub hasło jest niepoprawne  " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, " Login lub hasło jest niepoprawne  " , Toast.LENGTH_SHORT).show();
                         }
 
                     }

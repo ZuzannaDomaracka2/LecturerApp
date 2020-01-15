@@ -25,16 +25,12 @@ public class AddInformationActivity extends AppCompatActivity {
 
     EditText mAddText;
     Button mAddButton;
-    TextView mTextView7;
     TextView mAddDate;
     DatabaseReference databaseReference;
     FirebaseAuth fAuth;
 
 
     DatePickerDialog.OnDateSetListener mDateSetListener;
-
-
-
     Calendar calendar;
     String currentDate;
 
@@ -45,13 +41,11 @@ public class AddInformationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
+
         mAddText=findViewById(R.id.AddText);
         mAddButton = findViewById(R.id.AddButton);
         mAddDate = findViewById(R.id.AddDate);
-
-
         databaseReference= FirebaseDatabase.getInstance().getReference("global");
-
         fAuth=FirebaseAuth.getInstance();
 
 
@@ -108,6 +102,16 @@ public class AddInformationActivity extends AppCompatActivity {
 
 
     }
+    public void send(View view)
+    {
+        String body = mAddText.getText().toString().trim();
+        String date = mAddDate.getText().toString().trim();
+        String email=fAuth.getCurrentUser().getEmail();
+        saveUserInformation(body,email,date );
+        startActivity(new Intent(getApplicationContext(),HomeActivity.class));
+        finish();
+
+    }
 
     void saveUserInformation(String informationBody,String lecturerEmail,String informationDate) {
 
@@ -119,17 +123,7 @@ public class AddInformationActivity extends AppCompatActivity {
     }
 
 
-    public void send(View view)
-    {
-        String body = mAddText.getText().toString().trim();
 
-        String date = mAddDate.getText().toString().trim();
-        String email=fAuth.getCurrentUser().getEmail();
-        saveUserInformation(body,email,date );
-        startActivity(new Intent(getApplicationContext(),HomeActivity.class));
-        finish();
-
-    }
 
 
 

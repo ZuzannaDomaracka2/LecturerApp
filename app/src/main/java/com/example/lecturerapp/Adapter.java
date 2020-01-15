@@ -13,8 +13,6 @@ import java.util.ArrayList;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
-
-
     Context context;
     ArrayList<Information> informationList;
     OnItemClickListener removeListener;
@@ -35,14 +33,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
         myViewHolder.bind(informationList.get(i),removeListener);
-
-
-
-
-
-
-
-
 
     }
 

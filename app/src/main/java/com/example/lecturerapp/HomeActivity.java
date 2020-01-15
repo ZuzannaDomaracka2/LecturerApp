@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity {
-    TextView textView;
+    TextView textViewNull;
     TextView textViewAll;
     RecyclerView mRecyclerView;
     ArrayList<Information> list;
@@ -50,6 +50,7 @@ public class HomeActivity extends AppCompatActivity {
         }
         if(id==R.id.logout_item)
         {
+            Toast.makeText(HomeActivity.this,"Wylogowano", Toast.LENGTH_SHORT).show();
             fAuth.signOut();
 
             startActivity(new Intent(getApplicationContext(),LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
@@ -65,13 +66,11 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         fAuth =FirebaseAuth.getInstance();
 
-
-
         getSupportActionBar().setTitle("Witaj," +NameHelper.getFullNamefromEmail(fAuth.getCurrentUser().getEmail()));
 
 
         mRecyclerView = findViewById(R.id.myRecyclerview);
-        textView = findViewById(R.id.textListNull);
+        textViewNull = findViewById(R.id.textListNull);
         textViewAll=findViewById(R.id.textListAll);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<Information>();
@@ -131,7 +130,7 @@ public class HomeActivity extends AppCompatActivity {
                     String date = (String) dataSnapshot1.child("date").getValue();
                     String key = dataSnapshot1.getKey();
                     Information information = new Information(key, text, name, date);
-                    textView.setVisibility(View.GONE);
+                    textViewNull.setVisibility(View.GONE);
                     mRecyclerView.setVisibility(View.VISIBLE);
                     if(information.getLecturerName().equals(NameHelper.getFullNamefromEmail(fAuth.getCurrentUser().getEmail()))) {
 
@@ -146,7 +145,7 @@ public class HomeActivity extends AppCompatActivity {
 
                 if (list.isEmpty()) {
                     mRecyclerView.setVisibility(View.GONE);
-                    textView.setVisibility(View.VISIBLE);
+                    textViewNull.setVisibility(View.VISIBLE);
                     textViewAll.setVisibility(View.GONE);
                 }
 

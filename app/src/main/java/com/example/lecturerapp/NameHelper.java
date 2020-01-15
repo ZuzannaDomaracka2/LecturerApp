@@ -1,6 +1,7 @@
 package com.example.lecturerapp;
 
 public class NameHelper {
+
     public static String getFullNamefromEmail(String email){
         String[] arrOfStr = email.split("@", 2);
         String username = arrOfStr[0];

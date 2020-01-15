@@ -23,8 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
     Button mRegisterButton;
     TextView mLoginText;
     FirebaseAuth fAuth;
-    EditText mFullName;
-    String name;
+
 
 
     @Override
@@ -38,11 +37,6 @@ public class RegisterActivity extends AppCompatActivity {
         mRegisterButton= findViewById(R.id.RegisterButton);
         mLoginText=findViewById(R.id.LoginText);
         fAuth=FirebaseAuth.getInstance();
-
-
-
-
-
 
 
 
@@ -83,8 +77,6 @@ public class RegisterActivity extends AppCompatActivity {
                             Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
                             startActivity(intent);
                             Toast.makeText(RegisterActivity.this, " Nowe konto zostało utworzone ",Toast.LENGTH_SHORT).show();
-
-
                         }
                         else
                         {
